@@ -1,0 +1,40 @@
+# Addon Name: YouTube Download Context Menu
+# Addon id: context.youtube.download
+# Addon Provider:
+
+msgid ""
+msgstr ""
+
+"Project-Id-Version:\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30001"
+msgid "Download"
+msgstr ""
+
+msgctxt "#30002"
+msgid "Download in Background"
+msgstr ""
+
+msgctxt "#30003"
+msgid "Download in Foreground"
+msgstr ""
+
+msgctxt "#30004"
+msgid "Set Download Path"
+msgstr ""
+
+msgctxt "#30900"
+msgid "Plugin URL not found"
+msgstr ""
+
+msgctxt "#30901"
+msgid "Video ID not found"
+msgstr ""

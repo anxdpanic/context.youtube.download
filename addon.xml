@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<addon id="context.youtube.download" version="1.0.0" name="YouTube Download Context Menu" provider-name="anxdpanic">
+    <requires>
+        <import addon="xbmc.python" version="2.23.0"/>
+        <import addon="plugin.video.youtube" version="5.2.1"/>
+        <import addon="script.module.youtube.dl" version="16.327.0"/>
+    </requires>
+    <extension point="kodi.context.item">
+        <menu id="kodi.core.main">
+            <menu>
+                <label>30001</label>
+                <item library="resources/lib/download_bg.py">
+                    <label>30002</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+                <item library="resources/lib/download_fg.py">
+                    <label>30003</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+                <item library="resources/lib/set_download_path.py">
+                    <label>30004</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+            </menu>
+        </menu>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>Add Download to YouTube Add-on context menu</summary>
+        <description>Download YouTube videos using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
+        <platform>all</platform>
+    </extension>
+</addon>
