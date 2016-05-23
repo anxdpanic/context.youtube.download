@@ -18,7 +18,8 @@
 """
 
 import sys
-from utils import download
+from utils import download, log_version
 
 if __name__ == '__main__':
-    sys.exit(download(False))
+    log_version()
+    sys.exit(download(download_type='video', background=False))

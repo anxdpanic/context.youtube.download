@@ -18,7 +18,8 @@
 """
 
 import sys
-from YDStreamUtils import getDownloadPath
+from utils import log_version, get_download_path
 
 if __name__ == '__main__':
-    sys.exit(getDownloadPath())
+    log_version()
+    sys.exit(get_download_path())

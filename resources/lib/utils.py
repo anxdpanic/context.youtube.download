@@ -19,44 +19,63 @@
 
 import re
 import YDStreamExtractor
+from YDStreamUtils import getDownloadPath
+from yd_private_libs import servicecontrol
 from addon_lib import log_utils
 from addon_lib import kodi
 
 
-def download_video(video_id, bg=True):
+get_download_path = getDownloadPath
+
+
+def log_version():
+    log_utils.log('Version: |%s|' % kodi.get_version())
+
+
+def download_video(video_id, background=True):
     url = 'http://www.youtube.com/v/%s' % video_id
     info = YDStreamExtractor.getVideoInfo(url, quality=1)
     info = YDStreamExtractor._convertInfo(info)
-    log_utils.log('Downloading video_id: |%s|' % video_id)
-    result = YDStreamExtractor._handleDownload(info, bg=bg)
+    download_path = get_download_path(use_default=True)
+    log_utils.log('Downloading video_id: |%s| Background: |%s|' % (video_id, str(background)))
+    log_utils.log('Download Path: |%s|' % download_path)
+    if background:
+        servicecontrol.ServiceControl().download(info, path=download_path, duration=None)
+    else:
+        result = YDStreamExtractor._handleDownload(info, path=download_path, bg=False)
+        if result:
+            log_utils.log('Download complete: |%s| Path: |%s|' % (video_id, result.filepath))
+        elif result.status != 'canceled':
+            log_utils.log('Download failed: |%s| Error: |%s|' % (video_id, result.message), log_utils.LOGERROR)
+            kodi.notify(msg=result.message, sound=True)
+        else:
+            log_utils.log('Download cancelled')
+
+
+def video_id_from_plugin_url(plugin_url):
+    result = re.search('video_id=(?P<video_id>.+?)(?:&|$)', plugin_url)
     if result:
-        log_utils.log('Download complete: |%s| Path: |%s|' % (video_id, result.filepath))
-    elif result.status != 'canceled':
-        log_utils.log('Download failed: |%s| Error: |%s|' % (video_id, result.message), log_utils.LOGERROR)
-        kodi.notify(msg=result.message, sound=True)
+        log_utils.log('Found video_id: |%s|' % result.group('video_id'))
+        return result.group('video_id')
     else:
-        log_utils.log('Download cancelled')
-
-
-def get_video_id(path):
-    res = re.search('video_id=(.+?)(?:&|$)', path)
-    if res:
-        return res.group(1)
-    else:
+        log_utils.log('video_id not found', log_utils.LOGERROR)
         return None
 
 
-def download(bg=True):
-    log_utils.log('Version: |%s|' % kodi.get_version())
-    path = kodi.getInfoLabel('ListItem.FileNameAndPath')
-    log_utils.log('ListItem Path: |%s|' % path)
-    if not path:
+def download(download_type='video', background=True):
+    download_type = download_type.lower()
+    plugin_url = kodi.getInfoLabel('ListItem.FileNameAndPath')
+    log_utils.log('ListItem.FileNameAndPath: |%s|' % plugin_url)
+    if not plugin_url:
         log_utils.log('Plugin URL not found', log_utils.LOGERROR)
         kodi.notify(msg=kodi.i18n('not_found_plugin_url'), sound=False)
         return
-    video_id = get_video_id(path)
+    video_id = video_id_from_plugin_url(plugin_url)
     if video_id:
-        download_video(video_id, bg=bg)
+        if download_type == 'video':
+            kodi.notify(msg=kodi.i18n('download_starting'), sound=False)
+            download_video(video_id, background=background)
+        else:
+            log_utils.log('Requested unknown download_type', log_utils.LOGERROR)
     else:
-        log_utils.log('video_id not found', log_utils.LOGERROR)
         kodi.notify(msg=kodi.i18n('not_found_video_id'), sound=False)
