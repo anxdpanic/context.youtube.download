@@ -18,8 +18,8 @@
 """
 
 import sys
-from utils import log_version, get_download_path
+from utils import log_version, youtube_dl_settings
 
 if __name__ == '__main__':
     log_version()
-    sys.exit(get_download_path())
+    sys.exit(youtube_dl_settings())

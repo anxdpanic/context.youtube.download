@@ -19,13 +19,20 @@
 
 import re
 import YDStreamExtractor
-from YDStreamUtils import getDownloadPath
-from yd_private_libs import servicecontrol
 from addon_lib import log_utils
 from addon_lib import kodi
 
 
-get_download_path = getDownloadPath
+YOUTUBE_DL_SCRIPT_ID = 'script.module.youtube.dl'
+
+
+def youtube_dl_control():
+    script_path = 'special://home/addons/%s/control.py' % YOUTUBE_DL_SCRIPT_ID
+    kodi.execute_builtin('RunScript(%s)' % script_path)
+
+
+def youtube_dl_settings():
+    kodi.Addon(YOUTUBE_DL_SCRIPT_ID).openSettings()
 
 
 def log_version():
@@ -34,15 +41,12 @@ def log_version():
 
 def download_video(video_id, background=True):
     url = 'http://www.youtube.com/v/%s' % video_id
-    info = YDStreamExtractor.getVideoInfo(url, quality=1)
-    info = YDStreamExtractor._convertInfo(info)
-    download_path = get_download_path(use_default=True)
+    info = YDStreamExtractor.getVideoInfo(url)
     log_utils.log('Downloading video_id: |%s| Background: |%s|' % (video_id, str(background)))
-    log_utils.log('Download Path: |%s|' % download_path)
     if background:
-        servicecontrol.ServiceControl().download(info, path=download_path, duration=None)
+        YDStreamExtractor.handleDownload(info, bg=background)
     else:
-        result = YDStreamExtractor._handleDownload(info, path=download_path, bg=False)
+        result = YDStreamExtractor.handleDownload(info, bg=background)
         if result:
             log_utils.log('Download complete: |%s| Path: |%s|' % (video_id, result.filepath))
         elif result.status != 'canceled':

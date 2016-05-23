@@ -28,7 +28,11 @@ msgid "Download in Foreground"
 msgstr ""
 
 msgctxt "#30004"
-msgid "Set Download Path"
+msgid "youtube-dl Control"
+msgstr ""
+
+msgctxt "#30005"
+msgid "youtube-dl Settings"
 msgstr ""
 
 msgctxt "#30800"

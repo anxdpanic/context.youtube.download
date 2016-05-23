@@ -21,7 +21,13 @@
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
-                <item library="resources/lib/set_download_path.py">
+                <item library="resources/lib/youtube_dl_settings.py">
+                    <label>30005</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+                <item library="resources/lib/youtube_dl_control.py">
                     <label>30004</label>
                     <visible>
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
