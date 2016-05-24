@@ -132,17 +132,17 @@ def download(download_type='video', background=True):
     download_type = download_type.lower()
     plugin_url = sys.listitem.getfilename()
     log_utils.log('ListItem.FileNameAndPath: |%s|' % plugin_url)
-    if not plugin_url:
+    if plugin_url:
+        video_id = get_video_id(plugin_url)
+        if video_id:
+            if download_type == 'video':
+                download_video(video_id, background=background)
+            elif download_type == 'audio':
+                download_audio(video_id, background=background)
+            else:
+                log_utils.log('Requested unknown download_type: |%s|' % download_type, log_utils.LOGERROR)
+        else:
+            kodi.notify(msg=kodi.i18n('not_found_video_id'), sound=False)
+    else:
         log_utils.log('Plugin URL not found', log_utils.LOGERROR)
         kodi.notify(msg=kodi.i18n('not_found_plugin_url'), sound=False)
-        return
-    video_id = get_video_id(plugin_url)
-    if video_id:
-        if download_type == 'video':
-            download_video(video_id, background=background)
-        elif download_type == 'audio':
-            download_audio(video_id, background=background)
-        else:
-            log_utils.log('Requested unknown download_type: |%s|' % download_type, log_utils.LOGERROR)
-    else:
-        kodi.notify(msg=kodi.i18n('not_found_video_id'), sound=False)
