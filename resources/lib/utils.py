@@ -18,12 +18,15 @@
 '''
 
 import re
+import sys
+import urllib
 import YDStreamExtractor
 from addon_lib import log_utils
 from addon_lib import kodi
 
 
 YOUTUBE_DL_SCRIPT_ID = 'script.module.youtube.dl'
+USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)'
 
 
 def youtube_dl_control():
@@ -39,10 +42,7 @@ def log_version():
     log_utils.log('Version: |%s|' % kodi.get_version())
 
 
-def download_video(video_id, background=True):
-    url = 'http://www.youtube.com/v/%s' % video_id
-    info = YDStreamExtractor.getVideoInfo(url)
-    log_utils.log('Downloading video_id: |%s| Background: |%s|' % (video_id, str(background)))
+def _download(video_id, info, background=True):
     if background:
         YDStreamExtractor.handleDownload(info, bg=background)
     else:
@@ -54,6 +54,59 @@ def download_video(video_id, background=True):
             kodi.notify(msg=result.message, sound=True)
         else:
             log_utils.log('Download cancelled')
+
+
+def get_video_info(url):
+    info = YDStreamExtractor.getVideoInfo(url)
+    if hasattr(info, '_streams'):
+        return info
+    else:
+        log_utils.log('Stream not available: |%s|' % url, log_utils.LOGERROR)
+        kodi.notify(msg=kodi.i18n('stream_not_available'), sound=False)
+        return None
+
+
+def download_video(video_id, background=True):
+    url = 'http://www.youtube.com/v/%s' % video_id
+    info = get_video_info(url)
+    if info:
+        log_utils.log('Downloading: |video| video_id: |%s| Background: |%s|' % (video_id, str(background)))
+        _download(video_id, info, background)
+
+
+def download_audio(video_id, background=True):
+    url = 'http://www.youtube.com/v/%s' % video_id
+    info = get_video_info(url)
+    if info:
+        stream = info._streams[0]
+        ytdl_format = stream.get('ytdl_format', {})
+        formats = ytdl_format.get('formats', [])
+        best_quality = 0
+        best_format = None
+        if formats:
+            for fmt in formats:
+                fmt_desc = fmt.get('format', '')
+                if 'audio only' in fmt_desc.lower():
+                    ext = fmt.get('ext')
+                    if ext == 'm4a':
+                        tbr = int(fmt.get('tbr'))
+                        if tbr > best_quality:
+                            best_quality = tbr
+                            best_format = fmt
+            if best_format:
+                stream['xbmc_url'] = best_format['url'] + '|' + urllib.urlencode({'User-Agent': USER_AGENT})
+                stream['url'] = best_format['url']
+                stream['ytdl_format'].update(best_format)
+                stream['ytdl_format']['formats'] = [best_format]
+                info._streams = [stream]
+                log_utils.log('Downloading: |audio| video_id: |%s| Background: |%s|' % (video_id, str(background)))
+                _download(video_id, info, background)
+            else:
+                log_utils.log('No audio-only stream formats found: |%s|' % video_id, log_utils.LOGERROR)
+                kodi.notify(msg=kodi.i18n('no_audio_stream_formats'), sound=False)
+        else:
+            log_utils.log('No stream formats found: |%s|' % video_id, log_utils.LOGERROR)
+            kodi.notify(msg=kodi.i18n('no_stream_formats'), sound=False)
 
 
 def video_id_from_plugin_url(plugin_url):
@@ -68,7 +121,7 @@ def video_id_from_plugin_url(plugin_url):
 
 def download(download_type='video', background=True):
     download_type = download_type.lower()
-    plugin_url = kodi.getInfoLabel('ListItem.FileNameAndPath')
+    plugin_url = sys.listitem.getfilename()
     log_utils.log('ListItem.FileNameAndPath: |%s|' % plugin_url)
     if not plugin_url:
         log_utils.log('Plugin URL not found', log_utils.LOGERROR)
@@ -78,7 +131,9 @@ def download(download_type='video', background=True):
     if video_id:
         if download_type == 'video':
             download_video(video_id, background=background)
+        elif download_type == 'audio':
+            download_audio(video_id, background=background)
         else:
-            log_utils.log('Requested unknown download_type', log_utils.LOGERROR)
+            log_utils.log('Requested unknown download_type: |%s|' % download_type, log_utils.LOGERROR)
     else:
         kodi.notify(msg=kodi.i18n('not_found_video_id'), sound=False)

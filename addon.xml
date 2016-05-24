@@ -9,14 +9,26 @@
         <menu id="kodi.core.main">
             <menu>
                 <label>30001</label>
-                <item library="resources/lib/download_bg.py">
+                <item library="resources/lib/download_video_bg.py">
                     <label>30002</label>
                     <visible>
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
-                <item library="resources/lib/download_fg.py">
+                <item library="resources/lib/download_video_fg.py">
                     <label>30003</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+                <item library="resources/lib/download_audio_bg.py">
+                    <label>30006</label>
+                    <visible>
+                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                    </visible>
+                </item>
+                <item library="resources/lib/download_audio_fg.py">
+                    <label>30007</label>
                     <visible>
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>

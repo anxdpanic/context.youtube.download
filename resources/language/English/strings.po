@@ -20,11 +20,11 @@ msgid "Download"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Download in Background"
+msgid "Download Video in Background"
 msgstr ""
 
 msgctxt "#30003"
-msgid "Download in Foreground"
+msgid "Download Video in Foreground"
 msgstr ""
 
 msgctxt "#30004"
@@ -35,10 +35,30 @@ msgctxt "#30005"
 msgid "youtube-dl Settings"
 msgstr ""
 
+msgctxt "#30006"
+msgid "Download Audio in Background"
+msgstr ""
+
+msgctxt "#30007"
+msgid "Download Audio in Foreground"
+msgstr ""
+
 msgctxt "#30900"
 msgid "Plugin URL not found"
 msgstr ""
 
 msgctxt "#30901"
 msgid "Video ID not found"
+msgstr ""
+
+msgctxt "#30902"
+msgid "Stream not available"
+msgstr ""
+
+msgctxt "#30903"
+msgid "No stream formats found"
+msgstr ""
+
+msgctxt "#30904"
+msgid "No audio-only stream formats found"
 msgstr ""

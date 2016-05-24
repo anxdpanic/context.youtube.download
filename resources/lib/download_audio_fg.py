@@ -17,11 +17,9 @@
     along with this program. If not, see <http://www.gnu.org/licenses/>.
 """
 
-STRINGS = {
-    'download': 30001,
-    'not_found_plugin_url': 30900,
-    'not_found_video_id': 30901,
-    'stream_not_available': 30902,
-    'no_stream_formats': 30903,
-    'no_audio_stream_formats': 30904
-}
+import sys
+from utils import download, log_version
+
+if __name__ == '__main__':
+    log_version()
+    sys.exit(download(download_type='audio', background=False))
