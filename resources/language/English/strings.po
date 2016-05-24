@@ -1,6 +1,6 @@
 # Addon Name: YouTube Download Context Menu
 # Addon id: context.youtube.download
-# Addon Provider:
+# Addon Provider: anxdpanic
 
 msgid ""
 msgstr ""

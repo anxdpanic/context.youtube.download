@@ -26,6 +26,7 @@ from addon_lib import kodi
 
 
 YOUTUBE_DL_SCRIPT_ID = 'script.module.youtube.dl'
+YOUTUBE_VIDEO_URL = 'http://www.youtube.com/v/%s'
 USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64; rv:10.0) Gecko/20150101 Firefox/44.0 (Chrome)'
 
 
@@ -44,9 +45,9 @@ def log_version():
 
 def _download(video_id, info, background=True):
     if background:
-        YDStreamExtractor.handleDownload(info, bg=background)
+        YDStreamExtractor.handleDownload(info, bg=True)
     else:
-        result = YDStreamExtractor.handleDownload(info, bg=background)
+        result = YDStreamExtractor.handleDownload(info, bg=False)
         if result:
             log_utils.log('Download complete: |%s| Path: |%s|' % (video_id, result.filepath))
         elif result.status != 'canceled':
@@ -67,7 +68,7 @@ def get_video_info(url):
 
 
 def download_video(video_id, background=True):
-    url = 'http://www.youtube.com/v/%s' % video_id
+    url = YOUTUBE_VIDEO_URL % video_id
     info = get_video_info(url)
     if info:
         log_utils.log('Downloading: |video| video_id: |%s| Background: |%s|' % (video_id, str(background)))
@@ -75,7 +76,7 @@ def download_video(video_id, background=True):
 
 
 def download_audio(video_id, background=True):
-    url = 'http://www.youtube.com/v/%s' % video_id
+    url = YOUTUBE_VIDEO_URL % video_id
     info = get_video_info(url)
     if info:
         stream = info._streams[0]
@@ -86,13 +87,21 @@ def download_audio(video_id, background=True):
         if formats:
             for fmt in formats:
                 fmt_desc = fmt.get('format', '')
+                log_utils.log('format: |%s|' % fmt_desc)
                 if 'audio only' in fmt_desc.lower():
-                    ext = fmt.get('ext')
-                    if ext == 'm4a':
+                    format_id = fmt.get('format_id', '')
+                    asr = fmt.get('asr', '')
+                    tbr = fmt.get('tbr', '')
+                    abr = fmt.get('abr', '')
+                    ext = fmt.get('ext', '')
+                    log_utils.log('id: |%s| ext: |%s| asr: |%s| tbr: |%s| abr: |%s|' % (format_id, ext, asr, tbr, abr))
+                    if 'm4a' in ext:
                         tbr = int(fmt.get('tbr'))
                         if tbr > best_quality:
                             best_quality = tbr
                             best_format = fmt
+                            log_utils.log('Updated best_format: |%s| id: |%s| ext: |%s| asr: |%s| tbr: |%s| abr: |%s|' %
+                                          (fmt_desc, format_id, ext, asr, tbr, abr))
             if best_format:
                 stream['xbmc_url'] = best_format['url'] + '|' + urllib.urlencode({'User-Agent': USER_AGENT})
                 stream['url'] = best_format['url']
@@ -109,8 +118,8 @@ def download_audio(video_id, background=True):
             kodi.notify(msg=kodi.i18n('no_stream_formats'), sound=False)
 
 
-def video_id_from_plugin_url(plugin_url):
-    result = re.search('video_id=(?P<video_id>.+?)(?:&|$)', plugin_url)
+def get_video_id(url):
+    result = re.search('video_id=(?P<video_id>.+?)(?:&|$)', url)
     if result:
         log_utils.log('Found video_id: |%s|' % result.group('video_id'))
         return result.group('video_id')
@@ -127,7 +136,7 @@ def download(download_type='video', background=True):
         log_utils.log('Plugin URL not found', log_utils.LOGERROR)
         kodi.notify(msg=kodi.i18n('not_found_plugin_url'), sound=False)
         return
-    video_id = video_id_from_plugin_url(plugin_url)
+    video_id = get_video_id(plugin_url)
     if video_id:
         if download_type == 'video':
             download_video(video_id, background=background)

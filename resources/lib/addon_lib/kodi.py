@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-    Original Source can be found included in the original_sources/ directory and
-        https://github.com/tknorris/salts/tree/master/salts_lib
+    Original Source can be found included in the original_sources/ directory
 
     SALTS XBMC Addon
     Copyright (C) 2015 tknorris
@@ -33,17 +32,18 @@ import re
 import json
 import strings
 
-addon = xbmcaddon.Addon()
+__log = xbmc.log
+
+Addon = xbmcaddon.Addon
+Dialog = xbmcgui.Dialog
+ListItem = xbmcgui.ListItem
+Player = xbmc.Player
+execute_builtin = xbmc.executebuiltin
+sleep = xbmc.sleep
+
+addon = Addon()
 get_setting = addon.getSetting
 show_settings = addon.openSettings
-ListItem = xbmcgui.ListItem
-Dialog = xbmcgui.Dialog
-Addon = xbmcaddon.Addon
-getInfoLabel = xbmc.getInfoLabel
-execute_builtin = xbmc.executebuiltin
-Player = xbmc.Player
-sleep = xbmc.sleep
-__log = xbmc.log
 
 
 def execute_jsonrpc(command):
