@@ -15,14 +15,14 @@
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
-                <item library="resources/lib/download_video_fg.py">
-                    <label>30003</label>
+                <item library="resources/lib/download_audio_bg.py">
+                    <label>30006</label>
                     <visible>
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
-                <item library="resources/lib/download_audio_bg.py">
-                    <label>30006</label>
+                <item library="resources/lib/download_video_fg.py">
+                    <label>30003</label>
                     <visible>
                         StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>

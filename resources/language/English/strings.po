@@ -20,11 +20,11 @@ msgid "Download"
 msgstr ""
 
 msgctxt "#30002"
-msgid "Download Video in Background"
+msgid "Download Video (Background)"
 msgstr ""
 
 msgctxt "#30003"
-msgid "Download Video in Foreground"
+msgid "Download Video (Foreground)"
 msgstr ""
 
 msgctxt "#30004"
@@ -36,11 +36,11 @@ msgid "youtube-dl Settings"
 msgstr ""
 
 msgctxt "#30006"
-msgid "Download Audio in Background"
+msgid "Download Audio (Background)"
 msgstr ""
 
 msgctxt "#30007"
-msgid "Download Audio in Foreground"
+msgid "Download Audio (Foreground)"
 msgstr ""
 
 msgctxt "#30900"
