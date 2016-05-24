@@ -43,15 +43,15 @@ def log_version():
     log_utils.log('Version: |%s|' % kodi.get_version())
 
 
-def _download(video_id, info, background=True):
+def _download(info, background=True):
     if background:
         YDStreamExtractor.handleDownload(info, bg=True)
     else:
         result = YDStreamExtractor.handleDownload(info, bg=False)
         if result:
-            log_utils.log('Download complete: |%s| Path: |%s|' % (video_id, result.filepath))
+            log_utils.log('Download complete: |%s|' % result.filepath)
         elif result.status != 'canceled':
-            log_utils.log('Download failed: |%s| Error: |%s|' % (video_id, result.message), log_utils.LOGERROR)
+            log_utils.log('Download failed: |%s|' % result.message, log_utils.LOGERROR)
             kodi.notify(msg=result.message, sound=True)
         else:
             log_utils.log('Download cancelled')
@@ -72,7 +72,7 @@ def download_video(video_id, background=True):
     info = get_video_info(url)
     if info:
         log_utils.log('Downloading: |video| video_id: |%s| Background: |%s|' % (video_id, str(background)))
-        _download(video_id, info, background)
+        _download(info, background)
 
 
 def download_audio(video_id, background=True):
@@ -109,7 +109,7 @@ def download_audio(video_id, background=True):
                 stream['ytdl_format']['formats'] = [best_format]
                 info._streams = [stream]
                 log_utils.log('Downloading: |audio| video_id: |%s| Background: |%s|' % (video_id, str(background)))
-                _download(video_id, info, background)
+                _download(info, background)
             else:
                 log_utils.log('No audio-only stream formats found: |%s|' % video_id, log_utils.LOGERROR)
                 kodi.notify(msg=kodi.i18n('no_audio_stream_formats'), sound=False)
