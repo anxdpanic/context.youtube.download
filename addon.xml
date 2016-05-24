@@ -50,7 +50,7 @@
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Add Download to YouTube Add-on context menu</summary>
-        <description>Download YouTube videos using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
+        <description>Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
         <platform>all</platform>
     </extension>
 </addon>
