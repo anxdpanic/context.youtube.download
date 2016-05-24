@@ -19,7 +19,6 @@
 
 STRINGS = {
     'download': 30001,
-    'download_starting': 30800,
     'not_found_plugin_url': 30900,
     'not_found_video_id': 30901
 }

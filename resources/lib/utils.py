@@ -77,7 +77,6 @@ def download(download_type='video', background=True):
     video_id = video_id_from_plugin_url(plugin_url)
     if video_id:
         if download_type == 'video':
-            kodi.notify(msg=kodi.i18n('download_starting'), sound=False)
             download_video(video_id, background=background)
         else:
             log_utils.log('Requested unknown download_type', log_utils.LOGERROR)

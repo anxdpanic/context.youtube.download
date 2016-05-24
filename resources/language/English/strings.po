@@ -35,10 +35,6 @@ msgctxt "#30005"
 msgid "youtube-dl Settings"
 msgstr ""
 
-msgctxt "#30800"
-msgid "Download will start shortly..."
-msgstr ""
-
 msgctxt "#30900"
 msgid "Plugin URL not found"
 msgstr ""
