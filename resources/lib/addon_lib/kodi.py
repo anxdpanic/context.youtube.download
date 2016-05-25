@@ -41,7 +41,7 @@ Player = xbmc.Player
 execute_builtin = xbmc.executebuiltin
 sleep = xbmc.sleep
 
-addon = Addon()
+addon = xbmcaddon.Addon()
 get_setting = addon.getSetting
 show_settings = addon.openSettings
 
