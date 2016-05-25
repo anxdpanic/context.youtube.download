@@ -2,7 +2,7 @@
 
 ---
 
-Context-Item Add-on for Kodi 16+ and YouTube for Kodi Add-on
+Context Item Add-on for Kodi 16+ and YouTube for Kodi Add-on
 
 Download video(mp4) or audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on
 
