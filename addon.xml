@@ -2,7 +2,7 @@
 <addon id="context.youtube.download" version="1.0.0" name="YouTube Download Context Menu" provider-name="anxdpanic">
     <requires>
         <import addon="xbmc.python" version="2.23.0"/>
-        <import addon="plugin.video.youtube" version="5.2.1"/>
+        <import addon="plugin.video.youtube" version="5.1.19"/>
         <import addon="script.module.youtube.dl" version="16.327.0"/>
     </requires>
     <extension point="kodi.context.item">
