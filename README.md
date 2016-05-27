@@ -21,4 +21,9 @@ Download video(mp4) or audio(m4a) from YouTube using script.module.youtube.dl vi
     |              | **youtube-dl Settings**         | Configure script.module.youtube.dl (Video Quality, Download path, Confirm download path) |
     |              | **youtube-dl Control**          | Opens script.module.youtube.dl Controls, for download queue management |
 
+- Support
+    -
+
+    Post an [Issue](https://github.com/anxdpanic/context.youtube.download/issues) , or visit [#the_projects on Snoonet](https://kiwiirc.com/client/irc.snoonet.org/The_Projects)
+
 ---
