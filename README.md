@@ -1,3 +1,4 @@
+![YouTube Download Context Menu](https://raw.githubusercontent.com/anxdpanic/context.youtube.download/master/icon.png)
 #YouTube Download Context Menu
 
 Context Item Add-on for Kodi 16+ and YouTube for Kodi Add-on
@@ -29,3 +30,5 @@ Download video(mp4) or audio(m4a) from YouTube using script.module.youtube.dl vi
     Post an [Issue](https://github.com/anxdpanic/context.youtube.download/issues) , or visit [#the_projects on Snoonet](https://kiwiirc.com/client/irc.snoonet.org/The_Projects)
 
 ---
+
+Special thanks to [@konsumer420](https://twitter.com/konsumer420) for the icons/artwork
