@@ -27,7 +27,7 @@ Download video(mp4) or audio(m4a) from YouTube using script.module.youtube.dl vi
 - Support
     -
 
-    Post an [Issue](https://github.com/anxdpanic/context.youtube.download/issues) , or visit [#the_projects on Snoonet](https://kiwiirc.com/client/irc.snoonet.org/The_Projects)
+    Post an [Issue](https://github.com/anxdpanic/context.youtube.download/issues)
 
 ---
 
