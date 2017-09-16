@@ -49,10 +49,24 @@
         </menu>
     </extension>
     <extension point="xbmc.addon.metadata">
+        <news>
+- add Greek translation [Twilight0]
+- update string paths
+- update addon.xml
+        </news>
+        <assets>
+            <icon>icon.png</icon>
+            <fanart></fanart>
+        </assets>
+        <summary lang="en_gb">Add Download to YouTube Add-on context menu</summary>
+        <description lang="en_gb">Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
+        <summary lang="el_gr">Προσθήκη μενού για μεταφόρτωση από πρόσθετο Youtube</summary>
+        <description lang="el_gr">Μεταφόρτωση βίντεο (mp4) και ήχου (m4a) από Youtube χρησιμοποιώντας το script.module.youtube.dl μέσω δευτερεύοντος μενού εντός του πρόσθετου Youtube</description>
+        <language></language>
         <platform>all</platform>
-        <summary lang="en">Add Download to YouTube Add-on context menu</summary>
-        <description lang="en">Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
-        <summary lang="el">Προσθήκη μενού για μεταφόρτωση από πρόσθετο Youtube</summary>
-        <description lang="el">Μεταφόρτωση βίντεο (mp4) και ήχου (m4a) από Youtube χρησιμοποιώντας το script.module.youtube.dl μέσω δευτερεύοντος μενού εντός του πρόσθετου Youtube</description>
+        <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
+        <forum></forum>
+        <website>https://github.com/anxdpanic/context.youtube.download#youtube-download-context-menu</website>
+        <source>https://github.com/anxdpanic/context.youtube.download</source>
     </extension>
 </addon>
