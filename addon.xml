@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="context.youtube.download" version="1.1.0" name="YouTube Download Context Menu" provider-name="anxdpanic">
+<addon id="context.youtube.download" version="1.1.1" name="YouTube Download Context Menu" provider-name="anxdpanic">
     <requires>
-        <import addon="xbmc.python" version="2.23.0"/>
-        <import addon="plugin.video.youtube" version="5.1.19"/>
-        <import addon="script.module.youtube.dl" version="16.327.0"/>
+        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="plugin.video.youtube" version="5.4.0"/>
+        <import addon="script.module.youtube.dl" version="17.709.0"/>
     </requires>
     <extension point="kodi.context.item">
         <menu id="kodi.core.main">
@@ -49,8 +49,10 @@
         </menu>
     </extension>
     <extension point="xbmc.addon.metadata">
-        <summary>Add Download to YouTube Add-on context menu</summary>
-        <description>Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
         <platform>all</platform>
+        <summary lang="en">Add Download to YouTube Add-on context menu</summary>
+        <description lang="en">Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
+        <summary lang="el">Προσθήκη μενού για μεταφόρτωση από πρόσθετο Youtube</summary>
+        <description lang="el">Μεταφόρτωση βίντεο (mp4) και ήχου (m4a) από Youtube χρησιμοποιώντας το script.module.youtube.dl μέσω δευτερεύοντος μενού εντός του πρόσθετου Youtube</description>
     </extension>
 </addon>
