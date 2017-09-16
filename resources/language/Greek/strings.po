@@ -1,0 +1,64 @@
+# Addon Name: YouTube Download Context Menu
+# Addon id: context.youtube.download
+# Addon Provider: anxdpanic
+
+msgid ""
+msgstr ""
+
+"Project-Id-Version:\n"
+"POT-Creation-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: English\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30001"
+msgid "Download"
+msgstr "Μεταφόρτωση"
+
+msgctxt "#30002"
+msgid "Download Video (Background)"
+msgstr "Μεταφόρτωση βίντεο (Παρασκήνιο)"
+
+msgctxt "#30003"
+msgid "Download Video (Foreground)"
+msgstr "Μεταφόρτωση βίντεο (Προσκήνιο)"
+
+msgctxt "#30004"
+msgid "youtube-dl Control"
+msgstr "Έλεγχος youtube-dl"
+
+msgctxt "#30005"
+msgid "youtube-dl Settings"
+msgstr "Ρυθμίσεις youtube-dl"
+
+msgctxt "#30006"
+msgid "Download Audio (Background)"
+msgstr "Μεταφόρτωση ήχου (παρασκήνιο)"
+
+msgctxt "#30007"
+msgid "Download Audio (Foreground)"
+msgstr "Μεταφόρτωση ήχου (προσκήνιο)"
+
+msgctxt "#30900"
+msgid "Plugin URL not found"
+msgstr "Διεύθυνση μικροεφαρμογής δεν βρέθηκε"
+
+msgctxt "#30901"
+msgid "Video ID not found"
+msgstr "Αναγνωριστικό βίντεο δεν βρέθηκε"
+
+msgctxt "#30902"
+msgid "Stream not available"
+msgstr "Ροή μη διαθέσιμη"
+
+msgctxt "#30903"
+msgid "No stream formats found"
+msgstr "Δεν βρέθηκαν δομές ροών"
+
+msgctxt "#30904"
+msgid "No audio-only stream formats found"
+msgstr "Δεν βρέθηκαν δομές ροών ήχου-μόνο"
