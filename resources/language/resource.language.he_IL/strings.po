@@ -1,0 +1,62 @@
+# Kodi Media Center language file
+# Addon Name: YouTube
+msgid ""
+msgstr ""
+"Project-Id-Version: context.youtube.download\n"
+"POT-Creation-Date: 2017-09-26 11:01+0000\n"
+"PO-Revision-Date: 2017-09-26 17:00+0300\n"
+"Last-Translator: A. Dambledore\n"
+"Language-Team: Eng2Heb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: he_IL\n"
+
+
+msgctxt "#30001"
+msgid "Download"
+msgstr "הורד"
+
+msgctxt "#30002"
+msgid "Download Video (Background)"
+msgstr "הורד וידאו (ברקע)"
+
+msgctxt "#30003"
+msgid "Download Video (Foreground)"
+msgstr "הורד וידאו (בחזית)"
+
+msgctxt "#30004"
+msgid "youtube-dl Control"
+msgstr "בקרה - youtube-dl"
+
+msgctxt "#30005"
+msgid "youtube-dl Settings"
+msgstr "הגדרות - youtube-dl"
+
+msgctxt "#30006"
+msgid "Download Audio (Background)"
+msgstr "הורד אודיו (ברקע)"
+
+msgctxt "#30007"
+msgid "Download Audio (Foreground)"
+msgstr "הורד אודיו (בחזית)"
+
+msgctxt "#30900"
+msgid "Plugin URL not found"
+msgstr "תוסף URL לא נמצא"
+
+msgctxt "#30901"
+msgid "Video ID not found"
+msgstr "לא נמצא מזהה וידאו"
+
+msgctxt "#30902"
+msgid "Stream not available"
+msgstr "אין הזרמה זמינה"
+
+msgctxt "#30903"
+msgid "No stream formats found"
+msgstr "לא נמצאו תבניות הזרמה"
+
+msgctxt "#30904"
+msgid "No audio-only stream formats found"
+msgstr "לא נמצאו תבניות הזרמה לשמע בלבד"
