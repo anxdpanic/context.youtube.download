@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="context.youtube.download" version="1.2.1" name="YouTube Download Context Menu" provider-name="anxdpanic">
     <requires>
-        <import addon="xbmc.python" version="2.24.0"/>
+        <import addon="xbmc.python" version="2.25.0"/>
         <import addon="plugin.video.youtube" version="5.4.0"/>
         <import addon="script.module.youtube.dl" version="17.709.0"/>
     </requires>
@@ -12,37 +12,37 @@
                 <item library="resources/lib/download_video_bg.py">
                     <label>30002</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
                 <item library="resources/lib/download_audio_bg.py">
                     <label>30006</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
                 <item library="resources/lib/download_video_fg.py">
                     <label>30003</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
                 <item library="resources/lib/download_audio_fg.py">
                     <label>30007</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
                 <item library="resources/lib/youtube_dl_settings.py">
                     <label>30005</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
                 <item library="resources/lib/youtube_dl_control.py">
                     <label>30004</label>
                     <visible>
-                        StringCompare(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!StringCompare(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
+                        String.IsEqual(Container.PluginName,plugin.video.youtube)+!ListItem.IsFolder+!String.IsEqual(Container.FolderPath,plugin://plugin.video.youtube/special/live/)
                     </visible>
                 </item>
             </menu>
