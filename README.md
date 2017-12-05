@@ -8,7 +8,7 @@ Download video(mp4) or audio(m4a) from YouTube using script.module.youtube.dl vi
 - Installation
     -
     1. Enable - `Settings -> System -> Add-ons -> Unknown Sources`
-    2. Download repository: [repository.anxdpanic-x.x.x.zip](https://github.com/anxdpanic/_repository/raw/master/zips/repository.anxdpanic/repository.anxdpanic-0.9.6.zip)
+    2. Download repository: [repository.anxdpanic-x.x.x.zip](https://github.com/anxdpanic/_repository/raw/master/zips/repository.anxdpanic/repository.anxdpanic-0.9.8.zip)
     3. [Install from zip file](http://kodi.wiki/view/Add-on_manager#How_to_install_from_a_ZIP_file) (repository.anxdpanic-x.x.x.zip)
     4. [Install from repository](http://kodi.wiki/view/add-on_manager#How_to_install_add-ons_from_a_repository) (anxdpanic Add-on Repository)
 
