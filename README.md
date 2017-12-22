@@ -1,4 +1,4 @@
-![YouTube Download Context Menu](https://raw.githubusercontent.com/anxdpanic/context.youtube.download/master/icon.png)
+![YouTube Download Context Menu](icon.png)
 # YouTube Download Context Menu
 
 Context Item Add-on for Kodi 17+ and YouTube for Kodi Add-on
