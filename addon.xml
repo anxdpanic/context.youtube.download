@@ -53,7 +53,6 @@
         </news>
         <assets>
             <icon>icon.png</icon>
-            <fanart></fanart>
         </assets>
         <summary lang="en_gb">Add Download to YouTube Add-on context menu</summary>
         <description lang="en_gb">Download video(mp4) and audio(m4a) from YouTube using script.module.youtube.dl via context menu in the YouTube Kodi Add-on</description>
@@ -61,10 +60,8 @@
         <description lang="el_gr">Μεταφόρτωση βίντεο (mp4) και ήχου (m4a) από Youtube χρησιμοποιώντας το script.module.youtube.dl μέσω δευτερεύοντος μενού εντός του πρόσθετου Youtube</description>
         <summary lang="he_il">הוסף הורדה לתפריט ההקשר של YouTube</summary>
         <description lang="he_il">הורד סרטון (mp4) ושמע (m4a) מ-YouTube באמצעות script.module.youtube.dl על ידי תפריט ההקשר בתוסף ל-YouTube של קודי</description>
-        <language></language>
         <platform>all</platform>
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-        <forum></forum>
         <website>https://github.com/anxdpanic/context.youtube.download#youtube-download-context-menu</website>
         <source>https://github.com/anxdpanic/context.youtube.download</source>
     </extension>
